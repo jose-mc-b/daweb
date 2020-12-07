@@ -1,2 +1,2 @@
 # daweb
-Aplicación web en PHP
+Primer aplicación web en PHP usando la arquitectura MVC
