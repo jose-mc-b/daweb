@@ -79,7 +79,7 @@ class Template {
                 $value = print_r($value, True);
                 if(strlen($value) > 100) {
                     $value = substr($value, 0, 100) . chr(10) . "(...)";
-                    $value = n12br($value);
+                    $value = nl2br($value);
                 }
             }
         }
