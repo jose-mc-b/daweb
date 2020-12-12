@@ -1,5 +1,5 @@
 <?php
-
+importar ('core/db/IPersistence');
 
 abstract class DAO implements IPersistence {
     private $driver = DB_DRIVER;
@@ -33,9 +33,9 @@ abstract class DAO implements IPersistence {
             $id        = $values[array_search($keyfield, $fields)];
 
             if ($id=0) {
-                $sql = "INSERT INTO $table(";
+                $sql = "INSERT INTO $table (";
                 $sql = $sql . implode(',', $fields).")" .
-                        "VALUES (" . str_repeat("?,", count($values));
+                        " VALUES (" . str_repeat("?,", count($values));
                         //---quitar la ultima coma y cerrar el parentesis del value
                 $sql = substr($sql, 0, strlen($sql)-1) . ")";
             }else{
@@ -48,8 +48,9 @@ abstract class DAO implements IPersistence {
                 }
                 //--- quitar la ultima coma
                 $aux = substr($aux,0,strlen($aux)-1);
-                $sql = $sql . $aux . "WHERE $keyfield=?";
-                $fields[]= $id; //---- para el caso de hwere
+                $sql = $sql . $aux . " WHERE $keyfield=?";
+                $fields[]= $id; //---- para el caso de where
+                $values[]= $id;
             }
             DataBase :: connect ($this->driver,$this->connInfo);
             $resultado = DataBase::queryAction($sql,$values,$keyfield);
@@ -60,7 +61,7 @@ abstract class DAO implements IPersistence {
         {
             list($table) =$this-analizeObject();
 
-            $sql="SELECT * FROM". $table;
+            $sql="SELECT * FROM ". $table;
             DataBase::connect($this->driver,$this->conninfo);
             $resultado = DataBase::query($sql);
             $clase     =ucwords($table);
@@ -78,8 +79,8 @@ abstract class DAO implements IPersistence {
         public function getById($id =0)
         {
             list ($table,$keyfield) = $this->analizeObject();
-            $sql="SELECT * FROM" . $table . 
-                "WHERE $keyfield = $id";
+            $sql="SELECT * FROM " . $table . 
+                " WHERE $keyfield = $id";
             DataBase::connect($this->driver,$this->connInfo);
             $resultado = DataBase::query($sql);
             $clase     = ucwords($table);
@@ -98,7 +99,7 @@ abstract class DAO implements IPersistence {
 
         public function delete($id=0){
             list($table, $keyfield, $fields, $values) = $this->analizeObject();
-            $sql="DELETE FROM" . $table . " WHERE $keyfield=$id";
+            $sql="DELETE FROM " . $table . " WHERE $keyfield=$id";
             DataBase::connect($this->driver,$this->connInfo);
             return (DataBase::queryAction($sql, $values, $keyfield));
         } //----fin del delete
@@ -116,7 +117,7 @@ abstract class DAO implements IPersistence {
             $resultado = DataBase::query($sql);
             return ($resultado);
         }
-    } // fin clase DAO
+} // fin clase DAO
 
             
 ?>
