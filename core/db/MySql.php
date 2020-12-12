@@ -17,8 +17,8 @@ $this->port = $connectionInfo['port'];
 $this->db = $connectionInfo['db'];
 $this->user = $connectionInfo['user'];
 $this->pwd = $connectionInfo['pwd'];
- } 
- // --- fin constructor
+ } // --- fin constructor
+ 
 
  public function connect()
  {
@@ -26,6 +26,7 @@ $this->pwd = $connectionInfo['pwd'];
      $this->user, $this ->pwd, $this ->db,$this->port);
      mysqli_set_charset($this->conn,'utf8mb4');
  }
+ 
  public function close()
  {
      if($this->conn)
@@ -33,6 +34,7 @@ $this->pwd = $connectionInfo['pwd'];
          $this->conn->close();
      }
  }
+ 
  public function querySelect($sql= "")
  {
      $this ->connect();
@@ -45,8 +47,8 @@ $this->pwd = $connectionInfo['pwd'];
      $resultado ->free();
      $this ->close();
      return ($filas);
- }
- //-- fin querySelect
+ } //-- fin querySelect
+ 
  private function getType($values=[])
  {
      $type="";
@@ -57,7 +59,7 @@ $this->pwd = $connectionInfo['pwd'];
              case "integer": $type .= "i";break;
              case "string": $type .= "s";break;
              case "double": $type .= "d";break;
-             default: $type .="S";
+             default: $type .="s";
          }
      }
      return ($type);
@@ -70,7 +72,7 @@ $this->pwd = $connectionInfo['pwd'];
      $parameters = [];
      $parameters[] = &$types;
      $n= count($values);
-     for ($i=0; $i <$n; $i++){
+     for ($i=0; $i < $n; $i++){
          $parameters [] = &$values [$i];
      }
      return ($parameters);
@@ -84,7 +86,7 @@ $this->pwd = $connectionInfo['pwd'];
      call_user_func_array(array($stmt , 'bind_param'), $parameters);
      $stmt->execute();
      $resp = $stmt->affected_rows>0;
-     if (strpos(ltrim(strtoupper(sql)), "INSERT INTO")==0) {
+     if (strpos(ltrim(strtoupper(sql)), "INSERT INTO ")==0) {
          $resp = $this->conn->insert_id;
      }
      $stmt->close();
