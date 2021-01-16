@@ -111,7 +111,3 @@ function template_render($str='', $dict=array()) {
 function template_render_regex($str='', $key='REGEX', $dict=array()) {
     return Template($str)->render_regex($key, $dict);
 }
-
-?>
-
- 

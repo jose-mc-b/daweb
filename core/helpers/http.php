@@ -17,4 +17,3 @@ class HTTPHelper {
         exit(header("Location: $uri"));
     }
 }  // --- fin clase
-?> 
