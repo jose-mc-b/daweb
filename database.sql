@@ -50,7 +50,7 @@ CREATE TABLE productoimagen
 , imagen VARCHAR (100) NOT NULL
 , CONSTRAINT pkproductoimagen PRIMARY KEY (id)
 );
-AMBROSIO CARDOSO JIMENEZ13:45
+
 CREATE TABLE clientes 
 ( id BIGINT AUTO_INCREMENT 
 , nombreorazonsocial VARCHAR (100) NOT NULL
@@ -122,7 +122,7 @@ CREATE TABLE devoluciones
 , CONSTRAINT fkProductoDevolucion FOREIGN KEY (producto_id)  
   REFERENCES productos (id)
 );
-AMBROSIO CARDOSO JIMENEZ13:46
+
 INSERT INTO clasificacion (descripcion)
 VALUES 
 ('Barros'), ('Alebrijes'), ('Ropas'), ('Bebidas');
