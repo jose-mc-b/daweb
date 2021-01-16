@@ -1,8 +1,8 @@
 <div class="mx-auto m-3 p-3">
     <div class="card">
-        <div class="card-header bg-success d-flex justify-content-between ">
-            <h5>Listado de clasificación</h5>
-			<a class="btn btn-light btn-sm " href="/artesanias/clasificacion/agregar" role="button">Agregar</a>
+        <div class="card-header bg-success">
+            <h5>Listado de Roles</h5>
+
         </div>
         <div class="card-body shadow rounded" >
             <table class="table table-hover table-bordered" >
@@ -11,30 +11,28 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">CLASIFICACION</th>
-                        <th scope="col">DEPENDE DE</th>
                         <th scope="col" colspan="2">ACCION</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!--LISTADO_CLASIFICACION-->
+                    <!--LISTADO_ROLES-->
                     <tr>
                         <td>{id}</td>
                         <td>{descripcion}</td>
-                        <td>{padre}</td>
-                        
+                                          
                         <td>
-                            <a href="/artesanias/clasificacion/editar/{id}">
+                            <a href="/artesanias/roles/editar/{id}">
                                 <img src="/static/img/edit.png" width="48" alt="edit" title="Editar el elemento actual "/>
                             </a> 
                         </td>
                         <td>                              
-                            <a href="/artesanias/clasificacion/eliminar/{id}"
+                            <a href="/artesanias/roles/eliminar/{id}"
                             onclick="return confirm( 'Esta seguro de Borrar {descripcion}') ">
                                 <img src="/static/img/delete.png" width="48" alt="delete" title="Borrar el elemento actual "/>
                             </a> 
                         </td>
                     </tr>
-                    <!--LISTADO_CLASIFICACION-->
+                    <!--LISTADO_ROLES-->
                 </tbody>
             </table>
         </div>

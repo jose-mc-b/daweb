@@ -1,8 +1,8 @@
 <div class="mx-auto m-3 p-3">
     <div class="card">
-        <div class="card-header bg-success d-flex justify-content-between ">
+         <div class="card-header bg-success d-flex justify-content-between ">
             <h5>Listado de clasificación</h5>
-			<a class="btn btn-light btn-sm " href="/artesanias/clasificacion/agregar" role="button">Agregar</a>
+			<a class="btn btn-light btn-sm " href="/artesanias/artesanos/agregar" role="button">Agregar</a>
         </div>
         <div class="card-body shadow rounded" >
             <table class="table table-hover table-bordered" >
@@ -10,31 +10,41 @@
                 <thead class="thead-light ">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">CLASIFICACION</th>
-                        <th scope="col">DEPENDE DE</th>
+                        <th scope="col">NOMBRES</th>
+						<th scope="col">PRIMER APELLIDO</th>
+                        <th scope="col">SEGUNDO APELLIDO</th>
+                        <th scope="col">DOMICILIO</th>
+                        <th scope="col">TELEFONO</th>
+                        <th scope="col">CORREO</th>
+                        
                         <th scope="col" colspan="2">ACCION</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!--LISTADO_CLASIFICACION-->
+                    <!--LISTADO_ARTESANOS-->
                     <tr>
                         <td>{id}</td>
-                        <td>{descripcion}</td>
-                        <td>{padre}</td>
-                        
+                        <td>{nombres}</td>
+						<td>{id}</td>
+                        <td>{primerapellido}</td>
+						<td>{segundoapellido}</td>
+                        <td>{domiciliio}</td>
+						<td>{telefono}</td>
+                        <td>{correo}</td>
+						                  
                         <td>
-                            <a href="/artesanias/clasificacion/editar/{id}">
+                            <a href="/artesanias/artesanos/editar/{id}">
                                 <img src="/static/img/edit.png" width="48" alt="edit" title="Editar el elemento actual "/>
                             </a> 
                         </td>
                         <td>                              
-                            <a href="/artesanias/clasificacion/eliminar/{id}"
+                            <a href="/artesanias/artesanos/eliminar/{id}"
                             onclick="return confirm( 'Esta seguro de Borrar {descripcion}') ">
                                 <img src="/static/img/delete.png" width="48" alt="delete" title="Borrar el elemento actual "/>
                             </a> 
                         </td>
                     </tr>
-                    <!--LISTADO_CLASIFICACION-->
+                    <!--LISTADO_ARTESANOS-->
                 </tbody>
             </table>
         </div>
