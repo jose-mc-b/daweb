@@ -20,13 +20,12 @@ class FrontController {
 		$file = APP_DIR . "apps/$modulo/controllers/$cfile.php";
         $_file =  APP_DIR . "apps/$modulo/controllers/$cfile.php";
 		
-	
         if (file_exists($file) || file_exists($_file)){
 			
             $file = file_exists($file)? $file : $_file;
             require_once "$file";
             $controller = new $controllername($resource_name, $arg, $api);
-            
+			
 			if ($api){
                 ApiRESTFul::get($controller->apidata, $modelo, $recurso);
             }
@@ -36,4 +35,3 @@ class FrontController {
     }
 
 }
-?>

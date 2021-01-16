@@ -58,5 +58,3 @@ class ApplicationHandler {
         if($mu || $mo || $re) HTTPHelper::go(DEFAULT_VIEW);
     }
 }
-
-?>

@@ -13,7 +13,7 @@ abstract class controller {
         $this->model = MVCEngineHelper::get_model ($this); 
         $this->view = MVCEngineHelper::get_view($this);
         
-        if (method_exists ($this, $resource)){  
+        if (method_exists ($this, $resource)){ 
             //-- llamar la clase con su método correspondiente
             // -- y le manda los argumentos correspondientes en caso de 
             call_user_func(array($this, $resource), $arg);  
@@ -23,5 +23,3 @@ abstract class controller {
         }        
     }    
 }
-
-?>

@@ -55,5 +55,3 @@ class MVCEngineHelper {
         return new $view();     
     }
 }
-
-?>
