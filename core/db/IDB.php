@@ -5,4 +5,3 @@ interface IDB {
     public function querySelect($sql);
     public function queryAction($sql, $values, $keyfield);
 }
-?>

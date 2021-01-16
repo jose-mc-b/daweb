@@ -8,4 +8,3 @@ interface IPersistence
     public function delete($id=0);
     public function deleteAll();
 }
-?>
